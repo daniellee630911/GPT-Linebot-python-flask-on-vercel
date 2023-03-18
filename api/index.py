@@ -39,7 +39,7 @@ def handle_message(event):
     start_check = event.split()
     if event.message.type != "text":
         return
-    if start_check[1] == "丹":
+    if start_check[0] == "丹" && len(start_check) > 1:
         working_status = True 
         line_bot_api.reply_message(
             event.reply_token,
