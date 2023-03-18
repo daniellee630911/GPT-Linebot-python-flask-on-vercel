@@ -46,7 +46,7 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text="測試切詞"))
         return
-    
+ ###   
     if event.message.text == "說話":
         working_status = True
         line_bot_api.reply_message(
@@ -67,7 +67,7 @@ def handle_message(event):
         chatgpt.add_msg(f"AI:{reply_msg}\n")
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=reply_msg))
+            TextSendMessage(text=reply_msg)) ###
 
 
 if __name__ == "__main__":
