@@ -44,6 +44,7 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="測試切詞"))
+        return
     if event.message.text == "說話":
         working_status = True
         line_bot_api.reply_message(
