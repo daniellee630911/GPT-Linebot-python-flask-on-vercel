@@ -36,9 +36,14 @@ def callback():
 @line_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     global working_status
+    start_check = event.split()
     if event.message.type != "text":
         return
-
+    if start_check[1] == "丹丹":
+        working_status = True 
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="測試切詞"))
     if event.message.text == "說話":
         working_status = True
         line_bot_api.reply_message(
