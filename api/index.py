@@ -57,12 +57,12 @@ def handle_message(event):
     if working_status:
         if start_check[0] == "丹"
             event = start_check[1:]
-        chatgpt.add_msg(f"HUMAN:{event.message.text}?\n")
-        reply_msg = chatgpt.get_response().replace("AI:", "", 1)
-        chatgpt.add_msg(f"AI:{reply_msg}\n")
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=reply_msg))
+            chatgpt.add_msg(f"HUMAN:{event.message.text}?\n")
+            reply_msg = chatgpt.get_response().replace("AI:", "", 1)
+            chatgpt.add_msg(f"AI:{reply_msg}\n")
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=reply_msg))
 
 
 if __name__ == "__main__":
