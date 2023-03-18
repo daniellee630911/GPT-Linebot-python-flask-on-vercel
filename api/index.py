@@ -36,7 +36,7 @@ def callback():
 @line_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     global working_status
-    #start_check = event.split()
+    start_check = event.split()
     if event.message.type != "text":
         return
   
@@ -55,10 +55,12 @@ def handle_message(event):
         return
 
     if working_status:
+        if start_check[0] == "丹"
+            event = start_check[1:]
         chatgpt.add_msg(f"HUMAN:{event.message.text}?\n")
         reply_msg = chatgpt.get_response().replace("AI:", "", 1)
         chatgpt.add_msg(f"AI:{reply_msg}\n")
-            line_bot_api.reply_message(
+        line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=reply_msg))
 
